@@ -71,7 +71,7 @@ def load_go_database():
     go_terms = {}
     current_term = {}
 
-    with open("go-basic.txt", "r", encoding="utf-8") as file:
+    with open("go-basic.txt.gz", "r", encoding="utf-8") as file:
 
         for line in file:
 
