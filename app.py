@@ -1,4 +1,5 @@
 import streamlit as st
+import gzip
 import pandas as pd
 import joblib
 import re
@@ -65,13 +66,16 @@ def clear_sequence():
     st.session_state["protein_sequence"] = ""
 
 
+
+
+
 @st.cache_data
 def load_go_database():
 
     go_terms = {}
     current_term = {}
 
-    with open("go-basic.txt.gz", "r", encoding="utf-8") as file:
+    with gzip.open("go-basic.obo.gz", "rt", encoding="utf-8") as file:
 
         for line in file:
 
@@ -114,6 +118,7 @@ def load_go_database():
 
 
 go_database = load_go_database()
+
 
 
 # =====================================================
